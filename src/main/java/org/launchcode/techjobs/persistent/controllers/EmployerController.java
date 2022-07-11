@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
+import static org.launchcode.techjobs.persistent.controllers.ListController.columnChoices;
+
 @Controller
 @RequestMapping("employers")
 public class EmployerController {
