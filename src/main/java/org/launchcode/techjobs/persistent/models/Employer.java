@@ -11,12 +11,18 @@ import java.util.List;
 @Entity
 public class Employer extends AbstractEntity {
 
-    public Employer() {
-    }
 
     @NotBlank
     @Size(min = 3, max = 75, message = "Location must be between 3 and 75 characters")
     private String location;
+
+
+    @OneToMany
+    @JoinColumn(name = "employer_id")
+    private List<Job> jobs = new ArrayList<>();
+
+    public Employer() {
+    }
 
     public String getLocation() {
         return location;
@@ -26,15 +32,11 @@ public class Employer extends AbstractEntity {
         this.location = location;
     }
 
-    @Override
-    public String toString() {
-        return "Employer{" +
-                "location='" + location + '\'' +
-                '}';
-
+    public List<Job> getJobs() {
+        return jobs;
     }
-@OneToMany
-@JoinColumn(name = "employer_id")
-    private List<Job> jobs = new ArrayList<Job>();
 
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 }

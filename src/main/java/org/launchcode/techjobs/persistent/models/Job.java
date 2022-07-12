@@ -8,18 +8,17 @@ import java.util.List;
 public class Job extends AbstractEntity {
 
 
-
-
-@ManyToOne
+    @ManyToOne
     private Employer employer;
 
-@ManyToMany
-    private List<Skill> skills = new ArrayList<Skill>();
+
+    @ManyToMany
+    private List<Skill> skills;
 
     public Job() {
     }
 
-    public Job(Employer anEmployer, List someSkills) {
+    public Job(Employer anEmployer, List<Skill> someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
@@ -36,11 +35,12 @@ public class Job extends AbstractEntity {
         this.employer = employer;
     }
 
-    public List<Skill> getSkills() {
+
+    public Iterable<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(List skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 }

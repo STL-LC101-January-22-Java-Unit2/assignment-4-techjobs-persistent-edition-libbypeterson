@@ -22,10 +22,10 @@ public class SkillController {
     @Autowired
     private SkillRepository skillRepository;
 
-    @GetMapping("")
+    @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("TechJobs", "List");
-        model.addAttribute("Skills", skillRepository.findAll());
+
+        model.addAttribute("skills", skillRepository.findAll());
 
         return "skills/index";
     }
